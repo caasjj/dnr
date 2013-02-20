@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="../templates/css/mystyle.css">
+    <script type="text/javascript" src="../DNR/Javascript/FormValidation.js"></script>
+</head>
+<body>
+<header>
+    Login
+</header>
+<h1> Create Account </h1>
+    <form name="registration" action="/PHP/DNR/public_html/register" method="post" onsubmit="return validateForm()">
+
+        <label for="firstname">First Name:</label>
+        <input type="text" name="firstname" id="firstname">
+
+        <label for="lastname">Last Name:</label>
+        <input type="text" name="lastname" id="lastname">
+
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" id="phone" onblur="validatePhone()">
+
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" onblur="validateEmail()">
+
+        <label for="username">User Name:</label>
+        <input type="text" name="username" id="username">
+
+        <label for="password1">Password:</label>
+        <input type="text" name="password1" id="password1">
+
+        <label for="password2">Repeat Password:</label>
+        <input type="text" name="password2" id="password2" onblur="validatePassword()">
+
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>
+
