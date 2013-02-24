@@ -1,5 +1,5 @@
 <?php
-namespace DNR\Model;
+namespace DNR\Models;
 class Orderoption extends \ActiveRecord\Model
     {
 

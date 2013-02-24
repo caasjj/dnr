@@ -6,7 +6,7 @@ namespace ActiveRecord;
 use XmlWriter;
 
 /**
- * Base class for Model serializers.
+ * Base class for Models serializers.
  *
  * All serializers support the following options:
  *

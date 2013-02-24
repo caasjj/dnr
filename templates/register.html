@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8"/>
     <title>Registration Form</title>
-    <link rel="stylesheet" type="text/css" href="../templates/css/mystyle.css">
-    <script type="text/javascript" src="../DNR/Javascript/FormValidation.js"></script>
+    <link rel="stylesheet" type="text/css" href="../public_html/css/mystyle.css">
+    <script type="text/javascript" src="../public_html/js/FormValidation.js"></script>
 </head>
 <body>
 <header>
@@ -21,6 +21,18 @@
 
         <label for="phone">Phone:</label>
         <input type="text" name="phone" id="phone" onblur="validatePhone()">
+
+        <label for="street">Street:</label>
+        <input type="text" name="street" id="street" onblur="validateStreet()">
+
+        <label for="city">City:</label>
+        <input type="text" name="city" id="city" onblur="validateCity()">
+
+        <label for="state">State:</label>
+        <input type="text" name="state" id="state" onblur="validateStreet()">
+
+        <label for="zip">Zip code:</label>
+        <input type="text" name="zip" id="zip" onblur="validateStreet()">
 
         <label for="email">Email:</label>
         <input type="text" name="email" id="email" onblur="validateEmail()">

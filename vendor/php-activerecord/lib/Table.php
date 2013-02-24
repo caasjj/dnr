@@ -7,7 +7,7 @@ namespace ActiveRecord;
 /**
  * Manages reading and writing to a database table.
  *
- * This class manages a database table and is used by the Model class for
+ * This class manages a database table and is used by the Models class for
  * reading and writing to its database table. There is one instance of Table
  * for every table you have a model for.
  *
@@ -495,7 +495,7 @@ class Table
 	}
 
 	/**
-	 * Rebuild the delegates array into format that we can more easily work with in Model.
+	 * Rebuild the delegates array into format that we can more easily work with in Models.
 	 * Will end up consisting of array of:
 	 *
 	 * array('delegate' => array('field1','field2',...),
@@ -540,7 +540,7 @@ class Table
 	}
 
 	/**
-	 * @deprecated Model.php now checks for get|set_ methods via method_exists so there is no need for declaring static g|setters.
+	 * @deprecated Models.php now checks for get|set_ methods via method_exists so there is no need for declaring static g|setters.
 	 */
 	private function set_setters_and_getters()
 	{

@@ -26,7 +26,7 @@ namespace ActiveRecord;
  * </code>
  *
  * <code>
- * class Person extends ActiveRecord\Model {
+ * class Person extends ActiveRecord\Models {
  *   static $belongs_to = array(
  *     array('parent', 'foreign_key' => 'parent_id', 'class_name' => 'Person')
  *   );
@@ -42,7 +42,7 @@ namespace ActiveRecord;
  *   );
  * }
  *
- * class Order extends ActiveRecord\Model {
+ * class Order extends ActiveRecord\Models {
  *   static $belongs_to = array(
  *     array('person')
  *   );
@@ -118,14 +118,14 @@ class Model
 	private $__new_record = TRUE;
 
 	/**
-	 * Set to the name of the connection this {@link Model} should use.
+	 * Set to the name of the connection this {@link Models} should use.
 	 *
 	 * @var string
 	 */
 	static $connection;
 
 	/**
-	 * Set to the name of the database this Model's table is in.
+	 * Set to the name of the database this Models's table is in.
 	 *
 	 * @var string
 	 */
@@ -159,7 +159,7 @@ class Model
 	 * Allows you to create aliases for attributes.
 	 *
 	 * <code>
-	 * class Person extends ActiveRecord\Model {
+	 * class Person extends ActiveRecord\Models {
 	 *   static $alias_attribute = array(
 	 *     'alias_first_name' => 'first_name',
 	 *     'alias_last_name' => 'last_name');
@@ -180,7 +180,7 @@ class Model
 	 * This is the opposite of {@link attr_protected $attr_protected}.
 	 *
 	 * <code>
-	 * class Person extends ActiveRecord\Model {
+	 * class Person extends ActiveRecord\Models {
 	 *   static $attr_accessible = array('first_name','last_name');
 	 * }
 	 *
@@ -212,7 +212,7 @@ class Model
 	 * Delegates calls to a relationship.
 	 *
 	 * <code>
-	 * class Person extends ActiveRecord\Model {
+	 * class Person extends ActiveRecord\Models {
 	 *   static $belongs_to = array(array('venue'),array('host'));
 	 *   static $delegate = array(
 	 *     array('name', 'state', 'to' => 'venue'),
@@ -279,7 +279,7 @@ class Model
 	 *
 	 * EXAMPLE:
 	 * <code>
-	 * class User extends ActiveRecord\Model {
+	 * class User extends ActiveRecord\Models {
 	 *
 	 *   # define custom getter methods. Note you must
 	 *   # prepend get_ to your method name:
@@ -300,7 +300,7 @@ class Model
 	 * custom getter for 'name':
 	 *
 	 * <code>
-	 * class User extends ActiveRecord\Model {
+	 * class User extends ActiveRecord\Models {
 	 *
 	 *   # INCORRECT way to do it
 	 *   # function get_name() {
@@ -336,7 +336,7 @@ class Model
 	}
 
 	/**
-	 * Determines if an attribute exists for this {@link Model}.
+	 * Determines if an attribute exists for this {@link Models}.
 	 *
 	 * @param string $attribute_name
 	 * @return boolean
@@ -353,7 +353,7 @@ class Model
 	 *
 	 * EXAMPLE:
 	 * <code>
-	 * class User extends ActiveRecord\Model {
+	 * class User extends ActiveRecord\Models {
 	 *
 	 *   # define custom setter methods. Note you must
 	 *   # prepend set_ to your method name:
@@ -374,7 +374,7 @@ class Model
 	 * custom setter for 'name':
 	 *
 	 * <code>
-	 * class User extends ActiveRecord\Model {
+	 * class User extends ActiveRecord\Models {
 	 *
 	 *   # INCORRECT way to do it
 	 *   # function set_name($name) {
@@ -600,7 +600,7 @@ class Model
 	}
 
 	/**
-	 * Returns array of validator data for this Model.
+	 * Returns array of validator data for this Models.
 	 *
 	 * Will return an array looking like:
 	 *
@@ -644,7 +644,7 @@ class Model
 	}
 
 	/**
-	 * Retrieves the name of the table for this Model.
+	 * Retrieves the name of the table for this Models.
 	 *
 	 * @return string
 	 */
@@ -1516,7 +1516,7 @@ class Model
 	 *
 	 * @throws {@link RecordNotFound} if no options are passed or finding by pk and no records matched
 	 * @return mixed An array of records found if doing a find_all otherwise a
-	 *   single Model object or null if it wasn't found. NULL is only return when
+	 *   single Models object or null if it wasn't found. NULL is only return when
 	 *   doing a first/last find. If doing an all find and no records matched this
 	 *   will return an empty array.
 	 */

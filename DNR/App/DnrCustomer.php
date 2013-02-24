@@ -1,6 +1,6 @@
 <?php
 namespace DNR\App;
-use DNR\Model\Customer;
+//use \DNR\Models\Customer;
 
 /**
  * Created by JetBrains PhpStorm.
@@ -20,11 +20,31 @@ class DnrCustomer
 
         static function Create($p) {
 
+            DnrDatabase::connect('mysql://walid:mysql@localhost/DNRTest');
             $d = new DnrCustomer();
-            $d->customer = Customer::create($p);
 
-            return $d;
+            // Grab the customer data, minus the address
+            $data = $p;
+            $data['password'] =
+                crypt($p['password'], '$2a$10$ajHu7l3Yq.0pE4HQr19nR2');
 
+            unset($data['street']);
+            unset($data['city']);
+            unset($data['state']);
+            unset($data['zip']);
+
+
+            $d->customer = \DNR\Models\Customer::create($data);
+/*
+            // Grab the address data and make the association
+            $addr['street'] = $p['street']  ;
+            $addr['city'] = $p['city'];
+            $addr['state'] = $p['state'] ;
+            $addr['zip'] = $p['zip'];
+
+            $d->customer->create_address($addr);
+            //return $d;
+*/
         }
 
         public static function find_by_lastname($name) {
@@ -37,8 +57,10 @@ class DnrCustomer
         }
 
         function PlaceOrder($o) {
+
             $v = $this->customer;
             $this->order = $v->create_order($o);
+
         }
 
         function AddToBasket() {
@@ -54,11 +76,12 @@ class DnrCustomer
             $this->payment = $v->create_payment($m);
         }
 
-    // Utility functions
         public function display() {
 
-            $this->customer->display();
-
+            echo 'Name:     ' . $this->firstname . ' ' . $this->lastname . PHP_EOL;
+            echo 'ID:       ' . $this->id . PHP_EOL;
+            echo 'Username: ' . $this->username . PHP_EOL;
+            echo 'Phone:    ' . $this->phone . PHP_EOL;
         }
 
     }

@@ -47,7 +47,7 @@ class DatabaseException extends ActiveRecordException
 };
 
 /**
- * Thrown by {@link Model}.
+ * Thrown by {@link Models}.
  *
  * @package ActiveRecord
  */
@@ -68,7 +68,7 @@ class ExpressionsException extends ActiveRecordException {};
 class ConfigException extends ActiveRecordException {};
 
 /**
- * Thrown when attempting to access an invalid property on a {@link Model}.
+ * Thrown when attempting to access an invalid property on a {@link Models}.
  *
  * @package ActiveRecord
  */
@@ -94,7 +94,7 @@ class UndefinedPropertyException extends ModelException
 };
 
 /**
- * Thrown when attempting to perform a write operation on a {@link Model} that is in read-only mode.
+ * Thrown when attempting to perform a write operation on a {@link Models} that is in read-only mode.
  *
  * @package ActiveRecord
  */

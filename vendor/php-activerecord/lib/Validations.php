@@ -14,13 +14,13 @@ use IteratorAggregate;
 use ArrayIterator;
 
 /**
- * Manages validations for a {@link Model}.
+ * Manages validations for a {@link Models}.
  *
  * This class isn't meant to be directly used. Instead you define
- * validators thru static variables in your {@link Model}. Example:
+ * validators thru static variables in your {@link Models}. Example:
  *
  * <code>
- * class Person extends ActiveRecord\Model {
+ * class Person extends ActiveRecord\Models {
  *   static $validates_length_of = array(
  *     array('name', 'within' => array(30,100),
  *     array('state', 'is' => 2)
@@ -154,7 +154,7 @@ class Validations
 	 * Validates a field is not null and not blank.
 	 *
 	 * <code>
-	 * class Person extends ActiveRecord\Model {
+	 * class Person extends ActiveRecord\Models {
 	 *   static $validates_presence_of = array(
 	 *     array('first_name'),
 	 *     array('last_name')
@@ -187,7 +187,7 @@ class Validations
 	 * Validates that a value is included the specified array.
 	 *
 	 * <code>
-	 * class Car extends ActiveRecord\Model {
+	 * class Car extends ActiveRecord\Models {
 	 *   static $validates_inclusion_of = array(
 	 *     array('fuel_type', 'in' => array('hyrdogen', 'petroleum', 'electric')),
 	 *   );
@@ -279,7 +279,7 @@ class Validations
 	 * Validates that a value is numeric.
 	 *
 	 * <code>
-	 * class Person extends ActiveRecord\Model {
+	 * class Person extends ActiveRecord\Models {
 	 *   static $validates_numericality_of = array(
 	 *     array('salary', 'greater_than' => 19.99, 'less_than' => 99.99)
 	 *   );
@@ -394,7 +394,7 @@ class Validations
 	 * Validates that a value is matches a regex.
 	 *
 	 * <code>
-	 * class Person extends ActiveRecord\Model {
+	 * class Person extends ActiveRecord\Models {
 	 *   static $validates_format_of = array(
 	 *     array('email', 'with' => '/^.*?@.*$/')
 	 *   );
@@ -439,7 +439,7 @@ class Validations
 	 * Validates the length of a value.
 	 *
 	 * <code>
-	 * class Person extends ActiveRecord\Model {
+	 * class Person extends ActiveRecord\Models {
 	 *   static $validates_length_of = array(
 	 *     array('name', 'within' => array(1,50))
 	 *   );
@@ -541,7 +541,7 @@ class Validations
 	 * Validates the uniqueness of a value.
 	 *
 	 * <code>
-	 * class Person extends ActiveRecord\Model {
+	 * class Person extends ActiveRecord\Models {
 	 *   static $validates_uniqueness_of = array(
 	 *     array('name'),
 	 *     array(array('blah','bleh'), 'message' => 'blech')

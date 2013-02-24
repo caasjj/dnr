@@ -6,7 +6,7 @@ namespace ActiveRecord;
 use Closure;
 
 /**
- * Callbacks allow the programmer to hook into the life cycle of a {@link Model}.
+ * Callbacks allow the programmer to hook into the life cycle of a {@link Models}.
  *
  * You can control the state of your object by declaring certain methods to be
  * called before or after methods are invoked on your object inside of ActiveRecord.
@@ -33,7 +33,7 @@ use Closure;
  * This class isn't meant to be used directly. Callbacks are defined on your model like the example below:
  *
  * <code>
- * class Person extends ActiveRecord\Model {
+ * class Person extends ActiveRecord\Models {
  *   static $before_save = array('make_name_uppercase');
  *   static $after_save = array('do_happy_dance');
  *
@@ -104,7 +104,7 @@ class CallBack
 	/**
 	 * Creates a CallBack.
 	 *
-	 * @param string $model_class_name The name of a {@link Model} class
+	 * @param string $model_class_name The name of a {@link Models} class
 	 * @return CallBack
 	 */
 	public function __construct($model_class_name)
@@ -149,7 +149,7 @@ class CallBack
 	 * model object. For (after|before)_(create|update) callbacks, it will merge with
 	 * a generic 'save' callback which is called first for the lease amount of precision.
 	 *
-	 * @param string $model Model to invoke the callback on.
+	 * @param string $model Models to invoke the callback on.
 	 * @param string $name Name of the callback to invoke
 	 * @param boolean $must_exist Set to true to raise an exception if the callback does not exist.
 	 * @return mixed null if $name was not a valid callback type or false if a method was invoked
@@ -203,7 +203,7 @@ class CallBack
 	 * </ul>
 	 *
 	 * @param string $name Name of callback type (see {@link VALID_CALLBACKS $VALID_CALLBACKS})
-	 * @param mixed $closure_or_method_name Either a closure or the name of a method on the {@link Model}
+	 * @param mixed $closure_or_method_name Either a closure or the name of a method on the {@link Models}
 	 * @param array $options Options array
 	 * @return void
 	 * @throws ActiveRecordException if invalid callback type or callback method was not found

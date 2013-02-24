@@ -211,7 +211,7 @@ abstract class AbstractRelationship implements InterfaceRelationship
 	}
 
 	/**
-	 * Creates a new instance of specified {@link Model} with the attributes pre-loaded.
+	 * Creates a new instance of specified {@link Models} with the attributes pre-loaded.
 	 *
 	 * @param Model $model The model which holds this association
 	 * @param array $attributes Hash containing attributes to initialize the model with
@@ -224,7 +224,7 @@ abstract class AbstractRelationship implements InterfaceRelationship
 	}
 
 	/**
-	 * Creates a new instance of {@link Model} and invokes save.
+	 * Creates a new instance of {@link Models} and invokes save.
 	 *
 	 * @param Model $model The model which holds this association
 	 * @param array $attributes Hash containing attributes to initialize the model with
@@ -297,8 +297,8 @@ abstract class AbstractRelationship implements InterfaceRelationship
 			}
 		}
 
-		if (!$reflection->isSubClassOf('ActiveRecord\\Model'))
-			throw new RelationshipException("'$class_name' must extend from ActiveRecord\\Model");
+		if (!$reflection->isSubClassOf('ActiveRecord\\Models'))
+			throw new RelationshipException("'$class_name' must extend from ActiveRecord\\Models");
 
 		$this->class_name = $class_name;
 	}
@@ -394,11 +394,11 @@ abstract class AbstractRelationship implements InterfaceRelationship
  * # Table: people
  * # Primary key: id
  * # Foreign key: school_id
- * class Person extends ActiveRecord\Model {}
+ * class Person extends ActiveRecord\Models {}
  *
  * # Table: schools
  * # Primary key: id
- * class School extends ActiveRecord\Model {
+ * class School extends ActiveRecord\Models {
  *   static $has_many = array(
  *     array('people')
  *   );
@@ -408,14 +408,14 @@ abstract class AbstractRelationship implements InterfaceRelationship
  * Example using options:
  *
  * <code>
- * class Payment extends ActiveRecord\Model {
+ * class Payment extends ActiveRecord\Models {
  *   static $belongs_to = array(
  *     array('person'),
  *     array('order')
  *   );
  * }
  *
- * class Order extends ActiveRecord\Model {
+ * class Order extends ActiveRecord\Models {
  *   static $has_many = array(
  *     array('people',
  *           'through'    => 'payments',
@@ -568,11 +568,11 @@ class HasMany extends AbstractRelationship
  * <code>
  * # Table name: states
  * # Primary key: id
- * class State extends ActiveRecord\Model {}
+ * class State extends ActiveRecord\Models {}
  *
  * # Table name: people
  * # Foreign key: state_id
- * class Person extends ActiveRecord\Model {
+ * class Person extends ActiveRecord\Models {
  *   static $has_one = array(array('state'));
  * }
  * </code>
@@ -612,9 +612,9 @@ class HasAndBelongsToMany extends AbstractRelationship
  * Belongs to relationship.
  *
  * <code>
- * class School extends ActiveRecord\Model {}
+ * class School extends ActiveRecord\Models {}
  *
- * class Person extends ActiveRecord\Model {
+ * class Person extends ActiveRecord\Models {
  *   static $belongs_to = array(
  *     array('school')
  *   );
@@ -624,9 +624,9 @@ class HasAndBelongsToMany extends AbstractRelationship
  * Example using options:
  *
  * <code>
- * class School extends ActiveRecord\Model {}
+ * class School extends ActiveRecord\Models {}
  *
- * class Person extends ActiveRecord\Model {
+ * class Person extends ActiveRecord\Models {
  *   static $belongs_to = array(
  *     array('school', 'primary_key' => 'school_id')
  *   );

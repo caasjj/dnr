@@ -1,5 +1,5 @@
 <?php
-namespace DNR\Model;
+namespace DNR\Models;
 
 class Order extends \ActiveRecord\Model
     {
@@ -8,10 +8,12 @@ class Order extends \ActiveRecord\Model
             array('customer')
         );
 
+        /*
         static $has_many = array(
             array('orderitems'),
             array('orderoptions'),
             array('payments')
         );
+        */
 
     }

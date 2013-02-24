@@ -88,7 +88,7 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
      *
      * Pre-conditions:
      * URL Rewrite is disabled;
-     * App installed in subdirectory;
+     * Models installed in subdirectory;
      */
     public function testParsesPathsWithoutUrlRewriteInSubdirectory()
     {
@@ -102,7 +102,7 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
      *
      * Pre-conditions:
      * URL Rewrite is disabled;
-     * App installed in root directory;
+     * Models installed in root directory;
      */
     public function testParsesPathsWithoutUrlRewriteInRootDirectory()
     {
@@ -118,7 +118,7 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
      *
      * Pre-conditions:
      * URL Rewrite disabled;
-     * App installed in root directory;
+     * Models installed in root directory;
      * Requested resource is "/";
      */
     public function testParsesPathsWithoutUrlRewriteInRootDirectoryForAppRootUri()
@@ -136,7 +136,7 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
      *
      * Pre-conditions:
      * URL Rewrite enabled;
-     * App installed in subdirectory;
+     * Models installed in subdirectory;
      */
     public function testParsesPathsWithUrlRewriteInSubdirectory()
     {
@@ -153,7 +153,7 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
      *
      * Pre-conditions:
      * URL Rewrite enabled;
-     * App installed in root directory;
+     * Models installed in root directory;
      */
     public function testParsesPathsWithUrlRewriteInRootDirectory()
     {
@@ -170,7 +170,7 @@ class EnvironmentTest extends PHPUnit_Framework_TestCase
      *
      * Pre-conditions:
      * URL Rewrite enabled;
-     * App installed in root directory;
+     * Models installed in root directory;
      * Requested resource is "/"
      */
     public function testParsesPathsWithUrlRewriteInRootDirectoryForAppRootUri()

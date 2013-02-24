@@ -1,15 +1,21 @@
 <?php
 namespace DNR\App;
 
-use DNR\Routes as Routes;
-use DNR\MiddleWare as MWare;
+//use \DNR\Routes;
 
 class DnrApplication
     {
         private $app = NULL;
-        private static $pp = NULL;
 
-        private function __construct() {
+        public function __construct() {
+
+            $this->CreateApp();
+            $this->CreateView();
+            $this->CreateRoutes();
+
+        }
+
+        private function CreateApp() {
 
             // Prepare app
             $this->app = new \Slim\Slim(array(
@@ -22,26 +28,10 @@ class DnrApplication
                 ))
             ));
 
-            //$this->app->add(new MWare\UpperCase());
-
-        }
-
-        private function __clone() {
-        }
-
-        final public static function Create() {
-            if (!isset(self::$pp)) {
-                self::$pp = new DnrApplication();
-                self::$pp->CreateView();
-
-                return self::$pp;
-            } else {
-                return self::$pp;
-            }
         }
 
         private function CreateView() {
-            // Prepare view
+
             \Slim\Extras\Views\Twig::$twigOptions = array(
                 'charset'          => 'utf-8',
                 'cache'            => realpath('../templates/cache'),
@@ -50,20 +40,33 @@ class DnrApplication
                 'autoescape'       => TRUE
             );
             $this->app->view(new \Slim\Extras\Views\Twig());
+
         }
 
         public function CreateRoutes() {
 
+            $j = new \DNR\Routes\RouteHandler();
+
             $q = $this->app;
 
             $q->get('/', function () use ($q) {
+
+                //echo 'Loaded!';
                 $q->render('register.html');
+
             });
 
-            $q->post('/register', function () use ($q) {
-                $req = $q->request();
-                echo '<PRE>';
-                print_r($req->params());
+            $q->get('/menu/:d', function ($d) use ($q, $j) {
+
+                $j->HandleMenuLoader($d);
+
+            });
+
+            $q->post('/register', function () use ($q, $j) {
+
+
+                $j->HandleUserRegistration( $q->request()->params()) ;
+
             });
 
         }
@@ -75,6 +78,7 @@ class DnrApplication
         public function run() {
 
             $this->app->run();
+
         }
     }
 

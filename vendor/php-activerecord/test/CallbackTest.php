@@ -117,7 +117,7 @@ class CallBackTest extends DatabaseTest
 	public function test_register_via_static_with_invalid_definition()
 	{
 		$class_name = "Venues_" . md5(uniqid());
-		eval("class $class_name extends ActiveRecord\\Model { static \$table_name = 'venues'; static \$after_save = 'method_that_does_not_exist'; };");
+		eval("class $class_name extends ActiveRecord\\Models { static \$table_name = 'venues'; static \$after_save = 'method_that_does_not_exist'; };");
 		new $class_name();
 		new ActiveRecord\CallBack($class_name);
 	}

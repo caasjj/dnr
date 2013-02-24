@@ -1,5 +1,5 @@
 <?php
-namespace DNR\Model;
+namespace DNR\Models;
 
 class Payment extends \ActiveRecord\Model
     {

@@ -390,7 +390,7 @@ class ActiveRecordWriteTest extends DatabaseTest
 	}
 
 	/**
-	 * TODO: not implemented
+	 *  TODO: not implemented
 	public function test_update_all_with_set_as_array()
 	{
 		$num_affected = Author::update_all(array('set' => array('parent_author_id = ?', 2)));
@@ -408,7 +408,7 @@ class ActiveRecordWriteTest extends DatabaseTest
 	{
 		$num_affected = Author::update_all(array('set' => 'parent_author_id = 2', 'conditions' => array('name' => "Tito")));
 		$this->assert_equals(1, $num_affected);
-	}
+	}  // Fixme - I am broken!!
 
 	public function test_update_all_with_conditions_as_array()
 	{
