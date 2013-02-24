@@ -72,6 +72,7 @@ class DnrApplication
         }
 
         public function ConnectDatabase() {
+            // TODO: Move connection details to a configuration file, remove user/pass from source control
             DnrDatabase::connect('mysql://walid:mysql@localhost/DNRTest');
         }
 

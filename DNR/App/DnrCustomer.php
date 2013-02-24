@@ -20,6 +20,7 @@ class DnrCustomer
 
         static function Create($p) {
 
+            // TODO: Let something else handle the db connection (outside of Customer)
             DnrDatabase::connect('mysql://walid:mysql@localhost/DNRTest');
             $d = new DnrCustomer();
 
