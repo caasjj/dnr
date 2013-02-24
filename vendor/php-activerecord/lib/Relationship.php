@@ -297,8 +297,8 @@ abstract class AbstractRelationship implements InterfaceRelationship
 			}
 		}
 
-		if (!$reflection->isSubClassOf('ActiveRecord\\Models'))
-			throw new RelationshipException("'$class_name' must extend from ActiveRecord\\Models");
+	//   if (!$reflection->isSubClassOf('ActiveRecord\\Models'))
+	//		throw new RelationshipException("'$class_name' must extend from ActiveRecord\\Models"); // Fixme: remove comments
 
 		$this->class_name = $class_name;
 	}

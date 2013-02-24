@@ -35,7 +35,6 @@ class DnrCustomer
 
 
             $d->customer = \DNR\Models\Customer::create($data);
-/*
             // Grab the address data and make the association
             $addr['street'] = $p['street']  ;
             $addr['city'] = $p['city'];
@@ -44,7 +43,6 @@ class DnrCustomer
 
             $d->customer->create_address($addr);
             //return $d;
-*/
         }
 
         public static function find_by_lastname($name) {

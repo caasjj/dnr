@@ -7,6 +7,7 @@ class DnrApplication
     {
         private $app = NULL;
 
+
         public function __construct() {
 
             $this->CreateApp();
