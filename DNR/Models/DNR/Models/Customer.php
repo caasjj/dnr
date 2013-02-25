@@ -16,5 +16,4 @@ class Customer extends \ActiveRecord\Model
         static $validates_presence_of = array(
             array('firstname', 'lastname', 'phone')
         );
-
     }

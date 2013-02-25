@@ -13,5 +13,4 @@ class Order extends \ActiveRecord\Model
             array('orderoptions'),
             array('payments')
         );
-
     }
