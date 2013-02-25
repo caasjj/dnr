@@ -13,6 +13,7 @@ class DnrCustomer
         public function __construct() {
         }
 
+
         public function Create($p) {
             // DnrDatabase::Connect('mysql://walid:mysql@localhost/DNRTest');
             if (array_key_exists('street', $p) && array_key_exists('city', $p) && array_key_exists('state', $p) && array_key_exists('zip', $p)) {
@@ -36,6 +37,7 @@ class DnrCustomer
             ));
             $this->customer->save();
             $this->customer->create_address($this->address);
+
         }
 
         function PlaceOrder($o) {

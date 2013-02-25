@@ -65,6 +65,7 @@ class DnrApplication
             $application->get('/delete/:id', function ($id) use ($application, $handler) {
                 $handler->HandleUserDelete($id);
             });
+
         }
 
         public function Run() {
