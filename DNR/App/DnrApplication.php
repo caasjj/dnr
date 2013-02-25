@@ -7,7 +7,6 @@ class DnrApplication
     {
         private $app = NULL;
 
-
         public function __construct() {
 
             $this->CreateApp();
@@ -46,37 +45,37 @@ class DnrApplication
 
         public function CreateRoutes() {
 
-            $j = new \DNR\Routes\RouteHandler();
+            $handler = new \DNR\Routes\RouteHandler();
 
-            $q = $this->app;
+            $application = $this->app;
 
-            $q->get('/', function () use ($q) {
+            $application->get('/', function () use ($application) {
 
-                //echo 'Loaded!';
-                $q->render('register.html');
-
-            });
-
-            $q->get('/menu/:d', function ($d) use ($q, $j) {
-
-                $j->HandleMenuLoader($d);
+                $application->render('register.html');
 
             });
 
-            $q->post('/register', function () use ($q, $j) {
+            $application->get('/menu/:d', function ($d) use ($application, $handler) {
 
+                $handler->HandleMenuLoader($d);
 
-                $j->HandleUserRegistration( $q->request()->params()) ;
+            });
+
+            $application->post('/register', function () use ($application, $handler) {
+
+                $handler->HandleUserRegistration($application->request()->params());
+
+            });
+
+            $application->get('/order', function () use ($application, $handler) {
+
+                $handler->HandleUserOrder($application->request()->params());
 
             });
 
         }
 
-        public function ConnectDatabase() {
-            DnrDatabase::connect('mysql://walid:mysql@localhost/DNRTest');
-        }
-
-        public function run() {
+        public function Run() {
 
             $this->app->run();
 

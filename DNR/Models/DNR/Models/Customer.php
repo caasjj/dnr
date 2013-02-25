@@ -8,11 +8,9 @@ class Customer extends \ActiveRecord\Model
             array('address')
         );
 
-    /*
-            static $has_many = array(
-                array('orders')
-            );
-    */
+        static $has_many = array(
+            array('orders')
+        );
 
     // Validators - must have full name and phone number
         static $validates_presence_of = array(

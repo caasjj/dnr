@@ -1,5 +1,6 @@
 <?php
 namespace DNR\Models;
+
 class Orderitemselection extends \ActiveRecord\Model
     {
 
@@ -7,6 +8,5 @@ class Orderitemselection extends \ActiveRecord\Model
         static $belongs_to = array(
             array('orderitem')
         );
-
 
     }

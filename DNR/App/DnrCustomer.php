@@ -1,5 +1,6 @@
 <?php
 namespace DNR\App;
+
 //use \DNR\Models\Customer;
 
 /**
@@ -12,45 +13,40 @@ namespace DNR\App;
 class DnrCustomer
     {
 
-        public $customer, $order, $payment;
+        private $customer, $address, $order, $payment;
 
-        private function __construct() {
+        public function __construct($p) {
 
-        }
+            DnrDatabase::Connect('mysql://walid:mysql@localhost/DNRTest');
 
-        static function Create($p) {
-
-            DnrDatabase::connect('mysql://walid:mysql@localhost/DNRTest');
-            $d = new DnrCustomer();
-
-            // Grab the customer data, minus the address
-            $data = $p;
-            $data['password'] =
-                crypt($p['password'], '$2a$10$ajHu7l3Yq.0pE4HQr19nR2');
-
-            unset($data['street']);
-            unset($data['city']);
-            unset($data['state']);
-            unset($data['zip']);
-
-
-            $d->customer = \DNR\Models\Customer::create($data);
             // Grab the address data and make the association
-            $addr['street'] = $p['street']  ;
-            $addr['city'] = $p['city'];
-            $addr['state'] = $p['state'] ;
-            $addr['zip'] = $p['zip'];
+            if (array_key_exists('street', $p) && array_key_exists('city', $p) && array_key_exists('state', $p) && array_key_exists('zip', $p)) {
+                $this->address = new \DNR\Models\Address(array(
+                    'street' => $p['street'],
+                    'city'   => $p['city'],
+                    'state'  => $p['state'],
+                    'zip'    => $p['zip']
+                ));
+            } else {
+                $this->address = array();
+                $this->address->id = NULL;
+            }
 
-            $d->customer->create_address($addr);
-            //return $d;
+            $this->customer = new \DNR\Models\Customer(array(
+                'firstname'  => $p['firstname'],
+                'lastname'   => $p['lastname'],
+                'phone'      => $p['phone'],
+                'email'      => $p['email'],
+                'username'   => $p['username'],
+                'password'   => crypt($p['password'], '$2a$10$ajHu7l3Yq.0pE4HQr19nR2'),
+                'address_id' => $this->address->id
+            ));
         }
 
-        public static function find_by_lastname($name) {
+        public function Save() {
 
-            $v = new DnrCustomer();
-            $v->customer = Customer::find_by_lastname($name);
-
-            return $v;
+            $this->address->save();
+            $this->customer->save();
 
         }
 
@@ -74,7 +70,7 @@ class DnrCustomer
             $this->payment = $v->create_payment($m);
         }
 
-        public function display() {
+        public function Display() {
 
             echo 'Name:     ' . $this->firstname . ' ' . $this->lastname . PHP_EOL;
             echo 'ID:       ' . $this->id . PHP_EOL;

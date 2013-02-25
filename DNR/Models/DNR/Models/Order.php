@@ -8,12 +8,10 @@ class Order extends \ActiveRecord\Model
             array('customer')
         );
 
-        /*
         static $has_many = array(
             array('orderitems'),
             array('orderoptions'),
             array('payments')
         );
-        */
 
     }

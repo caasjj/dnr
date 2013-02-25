@@ -4,7 +4,7 @@ namespace DNR\App;
 class DnrDatabase
     {
 
-        public static function connect($connection) {
+        public static function Connect($connection) {
 
             $modeldir = '../DNR/Models';
             echo realpath($modeldir);
@@ -13,7 +13,7 @@ class DnrDatabase
                 die('Models directory does not exist!');
 
             }
-           // echo 'Models dir: ' . $modeldir . '<BR>';
+            // echo 'Models dir: ' . $modeldir . '<BR>';
             $cfg = \ActiveRecord\Config::instance();
             $cfg->set_model_directory($modeldir);
             //echo 'Connection is:' . $connection;

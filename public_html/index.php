@@ -6,4 +6,4 @@ require_once '../vendor/php-activerecord/ActiveRecord.php';
 
 $app = new DnrApplication();
 
-$app->run();
+$app->Run();
